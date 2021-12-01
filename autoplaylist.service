@@ -1,0 +1,9 @@
+[Unit]
+Description=Auto Playlist for MPD
+Requires=mpd.service
+
+[Service]
+ExecStart=/bin/python3 -m mdp_autoplaylist
+
+[Install]
+WantedBy=default.target

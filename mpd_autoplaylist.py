@@ -13,7 +13,11 @@ ARG_PARSER.add_argument("--server",   "-s", default='localhost')
 ARG_PARSER.add_argument("--port",     "-p", default=6600, type=int)
 ARG_PARSER.add_argument("--playlist", "-l", default="autoplay")
 
-def main(options):
+def main():
+    o = ARG_PARSER.parse_args()
+    sys.exit(run(o))
+
+def run(options):
     mpd = musicpd.MPDClient()
     mpd.connect(options.server, options.port)
 
@@ -57,5 +61,4 @@ def main(options):
             raise exc
 
 if __name__ == '__main__':
-    o = ARG_PARSER.parse_args()
-    sys.exit(main(o))
+    main()
