@@ -1,5 +1,3 @@
-#!/bin/python3
-
 import musicpd
 import sys
 import random
@@ -59,6 +57,3 @@ def run(options):
 
         if not works:   # If no Song worked, raise the last exception
             raise exc
-
-if __name__ == '__main__':
-    main()
