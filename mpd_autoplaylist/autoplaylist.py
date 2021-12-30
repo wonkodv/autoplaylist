@@ -18,7 +18,9 @@ def main():
 def run(options):
     mpd = musicpd.MPDClient()
     mpd.connect(options.server, options.port)
-
+    
+    mpd.consume("1")
+    mpd.play()
 
     while True:
         songs = mpd.listplaylist(options.playlist)
@@ -57,3 +59,5 @@ def run(options):
 
         if not works:   # If no Song worked, raise the last exception
             raise exc
+if __name__ == '__main__':
+    main()
